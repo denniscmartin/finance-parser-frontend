@@ -25,7 +25,8 @@ const routes = [
 
 // Create router instance
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory('/finance-parser/'),
+    base: '/finance-parser/',
     routes: routes,
 })
 
