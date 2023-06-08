@@ -56,7 +56,7 @@ export default defineComponent({
          <th scope="row">{{ company['ticker'] }}</th>
          <td>{{ company['report'] }}</td>
          <td>{{ company['year'] }}</td>
-         <td><a :href="company['url']">Link</a></td>
+         <td><router-link :to="company['url']">Link</router-link></td>
       </tr>
       </tbody>
    </table>
