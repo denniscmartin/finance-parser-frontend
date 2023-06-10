@@ -20,7 +20,21 @@ export default defineComponent({
          axios
              .get(url + '/report?ticker=' + this.ticker + '&type=' + this.type + '&year=' + this.year)
              .then(response => {
-                this.accounts = response['data']['message']['items']
+                const items = response['data']['message']['items']
+                this.accounts = items.sort((a, b) => {
+                   const skA = parseInt(a['sk'].split('#')[1])
+                   const skB = parseInt(b['sk'].split('#')[1])
+
+                   if (skA < skB) {
+                      return -1
+                   }
+
+                   if (skA > skB) {
+                      return 1
+                   }
+
+                   return 0
+                })
              })
              .catch(error => {
                 console.log(error)

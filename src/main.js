@@ -16,7 +16,7 @@ const routes = [
         component: HomeView,
     },
     {
-        path: '/company/:ticker/:type/:year',
+        path: '/company/:ticker/:year/:type',
         name: 'Company',
         component: CompanyView,
         props: true

@@ -19,9 +19,9 @@ export default defineComponent({
              .get(url + '/tickers')
              .then(response => {
                 for (const item of response['data']['message']['items']) {
-                   const ticker = item['pk'].substring(item['pk'].lastIndexOf('#') + 1)
-                   const report = item['pk'].substring(item['pk'].indexOf('#') + 1, item['pk'].lastIndexOf('#'))
-                   const year = item['sk'].substring(0, item['sk'].indexOf('#'))
+                   const report = item.substring(item.lastIndexOf('#') + 1)
+                   const ticker = item.substring(item.indexOf('#') + 1, item.lastIndexOf('#'))
+                   const year = item.substring(0, item.indexOf('#'))
                    const url = '/company/' + ticker + "/" + report + "/" + year
 
                    this.companies.push({
